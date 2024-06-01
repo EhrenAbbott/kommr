@@ -1,12 +1,15 @@
+/* * { 
+  border-style: dashed;
+} */
 
 body {
   box-sizing: border-box;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   min-width: 320px; 
   min-height: 100vh;
+  background-color: #64113F;
 }
 
 h1 {
@@ -14,3 +17,70 @@ h1 {
   line-height: 1.1;
 }
 
+/* Login */
+
+.login-container { 
+  text-align: center
+}
+
+.login-title {
+  font-size: 72px;
+  background: -webkit-linear-gradient(45deg, #EABFCB, #A4508B);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-input { 
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(4px 4px 8px #222222);
+}
+
+.login-input input { 
+  margin-top: 20px;
+  line-height: 35px;
+  border: none;
+  border-radius: 3px;
+  background-color: #EABFCB;
+}
+
+::placeholder { 
+  text-align: center;
+}
+
+input:focus { 
+  outline: none
+}
+
+.login-button, .create-account-button { 
+  line-height: 30px;
+  border: none;
+  border-radius: 3px;
+  background-color: #C191A1;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #222222;
+  font-size: 18px;
+}
+
+.create-account-button { 
+  margin-top: 20px;
+}
+
+.login-button { 
+  margin-top: 60px;
+}
+
+button { 
+  line-height: 160%;
+}
+
+button:hover { 
+  background-color: #d3d3d3;
+  cursor: pointer;
+}
