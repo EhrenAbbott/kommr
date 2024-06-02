@@ -73,6 +73,19 @@ input:focus {
   font-size: 18px;
 }
 
+.google-btn, .apple-btn, .fb-btn { 
+  border: none; 
+  background-color: transparent;
+  
+}
+
+
+
+.google-btn:hover, .apple-btn:hover, .fb-btn:hover { 
+  background-color: transparent;
+  cursor: pointer;
+} 
+
 .create-account-button { 
   margin-top: 20px;
 }
@@ -85,7 +98,30 @@ button {
   line-height: 160%;
 }
 
-button:hover { 
+.login-button:hover, .create-account-button:hover { 
   background-color: #d3d3d3;
   cursor: pointer;
+}
+
+.login-logo-container { 
+  display: flex; 
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 2px;
+  margin: 0px;
+
+}
+
+.login-logo-container img { 
+  max-width: 50px;
+  max-height: 50px;
+  filter: drop-shadow(1px 1px 2px #C191A1);
+}
+
+.login-logo-container img:hover { 
+  filter: drop-shadow(1px 1px 2px #d3d3d3);
+}
+
+.alt-login-text { 
+  margin-top: 60px;
 }
