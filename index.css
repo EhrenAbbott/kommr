@@ -19,34 +19,32 @@ h1 {
 
 /* Login */
 
-.login-container { 
+.form-container { 
   text-align: center
 }
 
-.login-title {
+.main-title {
   font-size: 72px;
   background: -webkit-linear-gradient(45deg, #EABFCB, #A4508B);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.login-input { 
+.login-input-section { 
   display: flex;
   flex-direction: column;
   filter: drop-shadow(4px 4px 8px #222222);
 }
 
-.login-input input { 
+.login-input { 
+  font-family: inherit;
+  text-align: center;
   margin-top: 20px;
   line-height: 35px;
   border: none;
   border-radius: 3px;
   background-color: #EABFCB;
   color: #222222;
-}
-
-input { 
-  font-family: inherit;
 }
 
 ::placeholder { 
@@ -57,7 +55,7 @@ input:focus {
   outline: none
 }
 
-.login-button, .create-account-button { 
+.login-page-btn { 
   line-height: 30px;
   border: none;
   border-radius: 3px;
@@ -73,21 +71,21 @@ input:focus {
   font-size: 18px;
 }
 
-.google-btn, .apple-btn, .fb-btn { 
+.auth-btn { 
   border: none; 
   background-color: transparent;
 }
 
-.google-btn:hover, .apple-btn:hover, .fb-btn:hover { 
+.auth-btn:hover { 
   background-color: transparent;
   cursor: pointer;
 } 
 
-.create-account-button { 
+#create-account-btn { 
   margin-top: 20px;
 }
 
-.login-button { 
+#login-btn { 
   margin-top: 60px;
 }
 
@@ -95,7 +93,7 @@ button {
   line-height: 160%;
 }
 
-.login-button:hover, .create-account-button:hover { 
+.login-page-btn:hover { 
   background-color: #d3d3d3;
   cursor: pointer;
 }
@@ -115,12 +113,15 @@ button {
   filter: drop-shadow(1px 1px 2px #C191A1);
 }
 
+
 .login-logo-container img:hover { 
   filter: drop-shadow(1px 1px 2px #d3d3d3);
 }
 
-.alt-login-text { 
+#alt-login-text { 
   margin-top: 60px;
+  font-size: larger;
+  color: #C191A1;
 }
 
 /* Navbar */

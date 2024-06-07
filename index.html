@@ -8,21 +8,22 @@
   </head>
 
   <body>
-    <form class='login-container'> 
-      <h1 class='login-title'>Kommr</h1>
+    <form class='form-container'> 
+      <h1 class='main-title'>Kommr</h1>
 
-      <div class='login-input'>
-          <input type='email'  placeholder="Email"></input>
-          <input type='password' placeholder="Password"></input>
+      <div class='login-input-section'>
+          <input class="login-input" type='email'  placeholder="Email"></input>
+          <input class="login-input" type='password' placeholder="Password"></input>
       </div>
-      <button class='login-button'>Login</button>
-      <button class='create-account-button'>Create Account</button>
 
-      <p class='alt-login-text'>-or login with-</p>
+      <button id="login-btn" class='login-page-btn'>Login</button>
+      <button id="create-account-btn" class='login-page-btn'>Create Account</button>
+
+      <p id='alt-login-text'>- or login with -</p>
       <div class='login-logo-container'> 
-          <button class='apple-btn'><img src="../assets/icons/apple.png"></img></button>
-          <button class='fb-btn'><img src="../assets/icons/facebook.png"></img></button>
-          <button class='google-btn'><img src="../assets/icons/google.png"></img></button>
+          <button id="apple-btn" class='auth-btn'><img src="../assets/icons/apple.png"></img></button>
+          <button id="fb-btn" class='auth-btn'><img src="../assets/icons/facebook.png"></img></button>
+          <button id="google-btn" class='auth-btn'><img src="../assets/icons/google.png"></img></button>
       </div>
     </form>
 
