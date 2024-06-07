@@ -4,9 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kommr</title>
+    <link rel="stylesheet" href="index.css">
   </head>
+
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/index.jsx"></script>
+    <form class='login-container'> 
+      <h1 class='login-title'>Kommr</h1>
+
+      <div class='login-input'>
+          <input type='email'  placeholder="Email"></input>
+          <input type='password' placeholder="Password"></input>
+      </div>
+      <button class='login-button'>Login</button>
+      <button class='create-account-button'>Create Account</button>
+
+      <p class='alt-login-text'>-or login with-</p>
+      <div class='login-logo-container'> 
+          <button class='apple-btn'><img src="../assets/icons/apple.png"></img></button>
+          <button class='fb-btn'><img src="../assets/icons/facebook.png"></img></button>
+          <button class='google-btn'><img src="../assets/icons/google.png"></img></button>
+      </div>
+    </form>
+
+    <!-- <div id="root"></div> -->
+    <script type="module" src="index.js"></script>
   </body>
 </html>

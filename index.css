@@ -1,0 +1,141 @@
+/* * { 
+  border-style: dashed;
+} */
+
+body {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  min-width: 320px; 
+  min-height: 100vh;
+  background-color: #64113F;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* Login */
+
+.login-container { 
+  text-align: center
+}
+
+.login-title {
+  font-size: 72px;
+  background: -webkit-linear-gradient(45deg, #EABFCB, #A4508B);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-input { 
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(4px 4px 8px #222222);
+}
+
+.login-input input { 
+  margin-top: 20px;
+  line-height: 35px;
+  border: none;
+  border-radius: 3px;
+  background-color: #EABFCB;
+  color: #222222;
+}
+
+input { 
+  font-family: inherit;
+}
+
+::placeholder { 
+  text-align: center;
+}
+
+input:focus { 
+  outline: none
+}
+
+.login-button, .create-account-button { 
+  line-height: 30px;
+  border: none;
+  border-radius: 3px;
+  background-color: #C191A1;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #222222;
+  font-size: 18px;
+}
+
+.google-btn, .apple-btn, .fb-btn { 
+  border: none; 
+  background-color: transparent;
+}
+
+.google-btn:hover, .apple-btn:hover, .fb-btn:hover { 
+  background-color: transparent;
+  cursor: pointer;
+} 
+
+.create-account-button { 
+  margin-top: 20px;
+}
+
+.login-button { 
+  margin-top: 60px;
+}
+
+button { 
+  line-height: 160%;
+}
+
+.login-button:hover, .create-account-button:hover { 
+  background-color: #d3d3d3;
+  cursor: pointer;
+}
+
+.login-logo-container { 
+  display: flex; 
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 2px;
+  margin: 0px;
+
+}
+
+.login-logo-container img { 
+  max-width: 50px;
+  max-height: 50px;
+  filter: drop-shadow(1px 1px 2px #C191A1);
+}
+
+.login-logo-container img:hover { 
+  filter: drop-shadow(1px 1px 2px #d3d3d3);
+}
+
+.alt-login-text { 
+  margin-top: 60px;
+}
+
+/* Navbar */
+.nav-items { 
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 20px;
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+
+nav { 
+  box-shadow: 0px 3px 7.5px rgb(0,0,0, .1);
+}
+
