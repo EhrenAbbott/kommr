@@ -14,6 +14,9 @@ const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 
 //HTML Elements//
+const loggedOutView = document.getElementById("logged-out-view")
+const loggedInView = document.getElementById("logged-in-view")
+
 const createAccountButtonEl = document.getElementById("create-account-btn")
 const emailInputEl = document.getElementById("email-input")
 const passwordInputEl = document.getElementById("password-input")
@@ -29,9 +32,11 @@ logoutBtnEl.addEventListener("click", authSignOut)
 function authSignInWithEmail() { 
     const email = emailInputEl.value
     const password = passwordInputEl.value
+
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             clearAuthFields()
+            showLoggedInView()
             console.log("successfully logged in")
         })
         .catch((error) => {
@@ -47,6 +52,7 @@ function authCreateAccountWithEmail() {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             clearAuthFields()
+            showLoggedInView()
             console.log("account created with email")
         })
         .catch((error) => {
@@ -70,6 +76,11 @@ function clearInputField(field){
 function clearAuthFields() {
 	clearInputField(emailInputEl)
 	clearInputField(passwordInputEl)
+}
+
+function showLoggedInView(){ 
+    hideView(loggedOutView)
+    showView(loggedInView)
 }
 
 function hideView(view){ 
