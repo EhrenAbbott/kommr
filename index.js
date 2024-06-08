@@ -6,6 +6,7 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword, 
     signOut, 
+    onAuthStateChanged,
     } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js"
 
 
@@ -83,6 +84,11 @@ function showLoggedInView(){
     showView(loggedInView)
 }
 
+function showLoggedOutView() {
+    hideView(loggedInView)
+    showView(loggedOutView)
+}
+
 function hideView(view){ 
     view.style.display = "none"
 }
@@ -90,5 +96,7 @@ function hideView(view){
 function showView(view){ 
     view.style.display = "flex"
 }
+
+
 
 
