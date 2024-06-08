@@ -4,7 +4,9 @@ import { firebaseConfig } from '../config/firebase.config.js'
 import { 
     getAuth, 
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js"
+    signInWithEmailAndPassword, 
+    signOut, 
+    } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js"
 
 
 //Global Variables
@@ -22,16 +24,15 @@ const logoutBtnEl = document.getElementById("logout-btn")
 //Event Listeners
 createAccountButtonEl.addEventListener("click", authCreateAccountWithEmail)
 loginBtnEl.addEventListener("click", authSignInWithEmail)
-logoutBtnEl.addEventListener("click", )
+logoutBtnEl.addEventListener("click", authSignOut)
 
 function authSignInWithEmail() { 
     const email = emailInputEl.value
     const password = passwordInputEl.value
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            const user = userCredential.user;
+            clearAuthFields()
             console.log("successfully logged in")
-            window.location.replace("/home.html")
         })
         .catch((error) => {
             const errorMessage = error.message;
@@ -45,12 +46,30 @@ function authCreateAccountWithEmail() {
 
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
+            clearAuthFields()
             console.log("account created with email")
-            window.location.replace("/home.html")
         })
         .catch((error) => {
             console.error(error.message)
         });
     }
+
+function authSignOut(){ 
+    signOut(auth).then(() => {
+        console.log("signout successfull")
+        window.location.replace("/index.html")
+    }).catch((error) => {
+        console.log(error)
+    });
+}
+
+function clearInputField(field){ 
+    field.value = ""
+}
+
+function clearAuthFields() {
+	clearInputField(emailInputEl)
+	clearInputField(passwordInputEl)
+}
 
 

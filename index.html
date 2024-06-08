@@ -8,24 +8,26 @@
   </head>
 
   <body>
-    <div class='form-container'> 
-      <h1 class='main-title'>Kommr</h1>
+    <section id="logged-out-view">
+      <div class='form-container'> 
+        <h1 class='main-title'>Kommr</h1>
 
-      <div class='login-input-section'>
-          <input id="email-input" class="login-input" type='email'  placeholder="Email"></input>
-          <input id="password-input" class="login-input" type='password' placeholder="Password"></input>
+        <div class='login-input-section'>
+            <input id="email-input" class="login-input" type='email'  placeholder="Email"></input>
+            <input id="password-input" class="login-input" type='password' placeholder="Password"></input>
+        </div>
+
+        <button id="login-btn" class='login-page-btn'>Login</button>
+        <button id="create-account-btn" class='login-page-btn'>Create Account</button>
+
+        <p id='alt-login-text'>- or login with -</p>
+        <div class='login-logo-container'> 
+            <button id="apple-btn" class='auth-btn'><img src="../assets/icons/apple.png"></img></button>
+            <button id="fb-btn" class='auth-btn'><img src="../assets/icons/facebook.png"></img></button>
+            <button id="google-btn" class='auth-btn'><img src="../assets/icons/google.png"></img></button>
+        </div>
       </div>
-
-      <button id="login-btn" class='login-page-btn'>Login</button>
-      <button id="create-account-btn" class='login-page-btn'>Create Account</button>
-
-      <p id='alt-login-text'>- or login with -</p>
-      <div class='login-logo-container'> 
-          <button id="apple-btn" class='auth-btn'><img src="../assets/icons/apple.png"></img></button>
-          <button id="fb-btn" class='auth-btn'><img src="../assets/icons/facebook.png"></img></button>
-          <button id="google-btn" class='auth-btn'><img src="../assets/icons/google.png"></img></button>
-      </div>
-    </div>
+  </section>
 
     <!-- <div id="root"></div> -->
     <script type="module" src="index.js"></script>
