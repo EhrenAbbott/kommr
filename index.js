@@ -72,4 +72,12 @@ function clearAuthFields() {
 	clearInputField(passwordInputEl)
 }
 
+function hideView(view){ 
+    view.style.display = "none"
+}
+
+function showView(view){ 
+    view.style.display = "flex"
+}
+
 
