@@ -55,49 +55,6 @@ input:focus {
   outline: none
 }
 
-.login-page-btn { 
-  line-height: 30px;
-  border: none;
-  border-radius: 3px;
-  background-color: #C191A1;
-  width: 100%;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-right: 10px;
-  padding-left: 10px;
-  letter-spacing: 1px;
-  font-weight: bold;
-  color: #222222;
-  font-size: 18px;
-}
-
-.auth-btn { 
-  border: none; 
-  background-color: transparent;
-}
-
-.auth-btn:hover { 
-  background-color: transparent;
-  cursor: pointer;
-} 
-
-#create-account-btn { 
-  margin-top: 20px;
-}
-
-#login-btn { 
-  margin-top: 60px;
-}
-
-button { 
-  line-height: 160%;
-}
-
-.login-page-btn:hover { 
-  background-color: #d3d3d3;
-  cursor: pointer;
-}
-
 .login-logo-container { 
   display: flex; 
   justify-content: space-between;
@@ -125,7 +82,7 @@ button {
 }
 
 /* Navbar */
-.nav-items { 
+/* .nav-items { 
   display: flex;
   list-style: none;
   justify-content: space-evenly;
@@ -134,9 +91,90 @@ button {
   margin-top: 20px;
   font-weight: bolder;
   letter-spacing: 1px;
+  border: 3px;
+} */
+
+
+#logged-in-view { 
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-nav { 
-  box-shadow: 0px 3px 7.5px rgb(0,0,0, .1);
+
+.container {
+  box-shadow: 0px 9px 7.5px rgb(0,0,0, .1);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-content: space-between;
 }
+
+
+nav { 
+  display: flex;
+  justify-content: end;
+}
+
+/* Buttons */
+
+button { 
+  line-height: 160%;
+  border: none; 
+  border-radius: 3px;
+  background-color: #C191A1;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #222222;
+  font-size: 18px;
+}
+
+button:hover { 
+  background-color: #d3d3d3;
+  cursor: pointer;
+}
+
+.login-page-btn { 
+  line-height: 30px;
+  border: none;
+  border-radius: 3px;
+  background-color: #C191A1;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #222222;
+  font-size: 18px;
+}
+
+#logout-btn { 
+  margin: 20px;
+}
+
+#create-account-btn { 
+  margin-top: 20px;
+}
+
+#login-btn { 
+  margin-top: 60px;
+}
+
+.auth-btn { 
+  border: none; 
+  background-color: transparent;
+}
+
+.auth-btn:hover { 
+  background-color: transparent;
+  cursor: pointer;
+} 
+
+
+
 
