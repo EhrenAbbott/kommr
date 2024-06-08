@@ -16,10 +16,13 @@ const createAccountButtonEl = document.getElementById("create-account-btn")
 const emailInputEl = document.getElementById("email-input")
 const passwordInputEl = document.getElementById("password-input")
 const loginBtnEl = document.getElementById("login-btn")
+const logoutBtnEl = document.getElementById("logout-btn")
+
 
 //Event Listeners
 createAccountButtonEl.addEventListener("click", authCreateAccountWithEmail)
 loginBtnEl.addEventListener("click", authSignInWithEmail)
+logoutBtnEl.addEventListener("click", )
 
 function authSignInWithEmail() { 
     const email = emailInputEl.value
@@ -28,6 +31,7 @@ function authSignInWithEmail() {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log("successfully logged in")
+            window.location.replace("/home.html")
         })
         .catch((error) => {
             const errorMessage = error.message;
@@ -42,6 +46,7 @@ function authCreateAccountWithEmail() {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             console.log("account created with email")
+            window.location.replace("/home.html")
         })
         .catch((error) => {
             console.error(error.message)
