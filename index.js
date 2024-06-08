@@ -1,4 +1,5 @@
 //Imports
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js"
 import { firebaseConfig } from '../config/firebase.config.js'
 import { 
@@ -11,10 +12,12 @@ import {
 
 
 //Global Variables
+
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 
-//HTML Elements//
+//HTML Elements/
+
 const loggedOutView = document.getElementById("logged-out-view")
 const loggedInView = document.getElementById("logged-in-view")
 
@@ -26,9 +29,26 @@ const logoutBtnEl = document.getElementById("logout-btn")
 
 
 //Event Listeners
+
 createAccountButtonEl.addEventListener("click", authCreateAccountWithEmail)
 loginBtnEl.addEventListener("click", authSignInWithEmail)
 logoutBtnEl.addEventListener("click", authSignOut)
+
+
+//Main Code
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.uid;
+      showLoggedInView()
+    } else {
+      showLoggedOutView()
+  }
+  });
+
+showLoggedOutView()
+
+//Auth functions
 
 function authSignInWithEmail() { 
     const email = emailInputEl.value
@@ -37,7 +57,6 @@ function authSignInWithEmail() {
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             clearAuthFields()
-            showLoggedInView()
             console.log("successfully logged in")
         })
         .catch((error) => {
@@ -53,7 +72,6 @@ function authCreateAccountWithEmail() {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             clearAuthFields()
-            showLoggedInView()
             console.log("account created with email")
         })
         .catch((error) => {
@@ -64,11 +82,12 @@ function authCreateAccountWithEmail() {
 function authSignOut(){ 
     signOut(auth).then(() => {
         console.log("signout successfull")
-        window.location.replace("/index.html")
     }).catch((error) => {
         console.log(error)
     });
 }
+
+//UI Functions
 
 function clearInputField(field){ 
     field.value = ""
@@ -96,7 +115,5 @@ function hideView(view){
 function showView(view){ 
     view.style.display = "flex"
 }
-
-
 
 
