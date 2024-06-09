@@ -8,6 +8,8 @@ import {
     signInWithEmailAndPassword, 
     signOut, 
     onAuthStateChanged,
+    GoogleAuthProvider,
+    signInWithPopup,
     } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js"
 
 
@@ -15,6 +17,7 @@ import {
 
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
+const provider = new GoogleAuthProvider()
 
 //HTML Elements/
 
@@ -26,6 +29,7 @@ const emailInputEl = document.getElementById("email-input")
 const passwordInputEl = document.getElementById("password-input")
 const loginBtnEl = document.getElementById("login-btn")
 const logoutBtnEl = document.getElementById("logout-btn")
+const googleBtnEl = document.getElementById("google-btn")
 
 
 //Event Listeners
@@ -33,6 +37,7 @@ const logoutBtnEl = document.getElementById("logout-btn")
 createAccountButtonEl.addEventListener("click", authCreateAccountWithEmail)
 loginBtnEl.addEventListener("click", authSignInWithEmail)
 logoutBtnEl.addEventListener("click", authSignOut)
+googleBtnEl.addEventListener("click", authSignInWithGoogle)
 
 
 //Main Code
@@ -85,6 +90,28 @@ function authSignOut(){
     }).catch((error) => {
         console.log(error)
     });
+}
+
+function authSignInWithGoogle() { 
+    signInWithPopup(auth, provider)
+        .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+    // The signed-in user info.
+            const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+         }).catch((error) => {
+    // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+    // The email of the user's account used.
+            const email = error.customData.email;
+    // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
 }
 
 //UI Functions
