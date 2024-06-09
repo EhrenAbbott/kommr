@@ -82,18 +82,12 @@ input:focus {
 }
 
 /* Navbar */
-/* .nav-items { 
+nav { 
   display: flex;
-  list-style: none;
-  justify-content: space-evenly;
-  padding: 0px;
-  margin: 0px;
-  margin-top: 20px;
-  font-weight: bolder;
-  letter-spacing: 1px;
-  border: 3px;
-} */
+  justify-content: end;
+}
 
+/* User Info */
 
 #logged-in-view { 
   display: none;
@@ -102,7 +96,6 @@ input:focus {
   margin: 0;
   padding: 0;
 }
-
 
 .container {
   box-shadow: 0px 9px 7.5px rgb(0,0,0, .1);
@@ -113,10 +106,18 @@ input:focus {
   align-content: space-between;
 }
 
-
-nav { 
+.user-info-container { 
   display: flex;
-  justify-content: end;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.user-info-input { 
+  width: 50%;
+  display: flex;
+  margin: auto auto;
+  margin-top: 20px;
 }
 
 /* Buttons */

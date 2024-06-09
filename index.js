@@ -10,6 +10,8 @@ import {
     onAuthStateChanged,
     GoogleAuthProvider,
     signInWithPopup,
+    FacebookAuthProvider,
+
     } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js"
 
 
@@ -17,7 +19,8 @@ import {
 
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
-const provider = new GoogleAuthProvider()
+const googleProvider = new GoogleAuthProvider()
+const facebookProvider = new FacebookAuthProvider();
 
 //HTML Elements/
 
@@ -30,6 +33,8 @@ const passwordInputEl = document.getElementById("password-input")
 const loginBtnEl = document.getElementById("login-btn")
 const logoutBtnEl = document.getElementById("logout-btn")
 const googleBtnEl = document.getElementById("google-btn")
+const facebookBtnEl = document.getElementById("fb-btn")
+const userGreetingEl = document.getElementById("user-greeting")
 
 
 //Event Listeners
@@ -38,14 +43,15 @@ createAccountButtonEl.addEventListener("click", authCreateAccountWithEmail)
 loginBtnEl.addEventListener("click", authSignInWithEmail)
 logoutBtnEl.addEventListener("click", authSignOut)
 googleBtnEl.addEventListener("click", authSignInWithGoogle)
+facebookBtnEl.addEventListener("click", authSignInWithFacebook)
 
 
 //Main Code
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
-      const uid = user.uid;
       showLoggedInView()
+      showUserGreeting(userGreetingEl, user)
     } else {
       showLoggedOutView()
   }
@@ -93,24 +99,31 @@ function authSignOut(){
 }
 
 function authSignInWithGoogle() { 
-    signInWithPopup(auth, provider)
+    signInWithPopup(auth, googleProvider)
         .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
-    // The signed-in user info.
             const user = result.user;
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
          }).catch((error) => {
-    // Handle Errors here.
             const errorCode = error.code;
             const errorMessage = error.message;
-    // The email of the user's account used.
             const email = error.customData.email;
-    // The AuthCredential type that was used.
             const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
+  });
+}
+
+function authSignInWithFacebook() { 
+    signInWithPopup(auth, facebookProvider)
+        .then((result) => {
+            const user = result.user;
+            const credential = FacebookAuthProvider.credentialFromResult(result);
+            const accessToken = credential.accessToken;
+  })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData.email;
+            const credential = FacebookAuthProvider.credentialFromError(error);
   });
 }
 
@@ -141,6 +154,20 @@ function hideView(view){
 
 function showView(view){ 
     view.style.display = "flex"
+}
+
+function showUserGreeting(element, user) { 
+    if (user !== null) {
+        const displayName = user.displayName;
+        const email = user.email;
+        const photoURL = user.photoURL;
+        const emailVerified = user.emailVerified;
+        // The user's ID, unique to the Firebase project. Do NOT use
+        // this value to authenticate with your backend server, if
+        // you have one. Use User.getToken() instead.
+        const uid = user.uid;
+        element.innerHTML = `Hello, ${user.email}`
+    }
 }
 
 
