@@ -163,7 +163,7 @@ input:focus {
   outline: none
 }
 
-input { 
+input, select { 
   filter: drop-shadow(4px 4px 8px #222222);
   font-family: inherit;
   text-align: center;
@@ -180,7 +180,20 @@ input {
   width: 50%;
   display: flex;
   margin: auto auto;
-  margin-top: 40px;
+}
+
+select { 
+  height: 30px;
+}
+
+/* Input -- label */
+label { 
+  filter: drop-shadow(4px 4px 8px #222222);
+  font-family: inherit;
+  text-align: center;
+  line-height: 30px;
+  color: #EABFCB;
+  margin-top: 20px;
 }
 
 

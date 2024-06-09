@@ -11,7 +11,7 @@ import {
     GoogleAuthProvider,
     signInWithPopup,
     FacebookAuthProvider,
-
+    updateProfile,
     } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js"
 
 
@@ -127,6 +127,18 @@ function authSignInWithFacebook() {
   });
 }
 
+function authUpdateProfile(){ 
+    updateProfile(auth.currentUser, {
+        displayName: "Jane Q. User", 
+        photoURL: "https://example.com/jane-q-user/profile.jpg"
+    }).then(() => {
+        // Profile updated!
+        console.log("profile updated")
+    }).catch((error) => {
+        console.log(error)
+    });
+}
+
 //UI Functions
 
 function clearInputField(field){ 
@@ -159,7 +171,8 @@ function showView(view){
 function showUserGreeting(element, user) { 
     if (user !== null) {
         if (user.displayName) { 
-            element.textContent = `Hello, ${user.displayName}`
+            const userFirstName = displayName.split(" ")[0]
+            element.textContent = `Hello, ${userFirstName}`
         } else { 
             element.textContent = `Hello, ${user.email}`
         }

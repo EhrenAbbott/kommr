@@ -37,10 +37,22 @@
         </nav> 
       </div>
       <div class="user-info-container"> 
-        <input class="user-info-input">
-        <input class="user-info-input">
-        <input class="user-info-input">
-        <input class="user-info-input">
+        <label for="display-name">Name</label>
+        <input name="display-name" id="user-display-name" class="user-info-input">
+
+        <label for="phone-number">Phone Number</label>
+        <input name="phone-number" id="user-phone-number" class="user-info-input">
+
+        <!-- <label for="location">Location</label>
+        <input name="location" id="user-location" class="user-info-input"> -->
+
+        <label for="jobs">French Truck varietal</label>
+        <select name="jobs" id="user-job" class="user-info-input">
+            <option selected value="default">--</option>
+            <option value="commisary">commisary trucker</option>
+            <option value="manager">manager trucker</option>
+            <option value="driver">driver trucker</option>
+        </select>
       </div>
     </section>
 
