@@ -171,8 +171,9 @@ button:hover {
 
 /* Input */
 
-input:focus { 
-  outline: none
+input:focus, select:focus { 
+  outline: none;
+  background-color: #d3d3d3;
 }
 
 input, select { 
