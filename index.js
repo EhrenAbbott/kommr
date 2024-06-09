@@ -35,6 +35,9 @@ const logoutBtnEl = document.getElementById("logout-btn")
 const googleBtnEl = document.getElementById("google-btn")
 const facebookBtnEl = document.getElementById("fb-btn")
 const userGreetingEl = document.getElementById("user-greeting")
+const userFirstNameEl = document.getElementById("user-first-name")
+const userPhoneNumber = document.getElementById("user-phone-number")
+const userInfoSubmitBtnEl = document.getElementById("user-info-submit-btn")
 
 
 //Event Listeners
@@ -44,6 +47,7 @@ loginBtnEl.addEventListener("click", authSignInWithEmail)
 logoutBtnEl.addEventListener("click", authSignOut)
 googleBtnEl.addEventListener("click", authSignInWithGoogle)
 facebookBtnEl.addEventListener("click", authSignInWithFacebook)
+userInfoSubmitBtnEl.addEventListener("click", authUpdateProfile)
 
 
 //Main Code
@@ -128,16 +132,20 @@ function authSignInWithFacebook() {
 }
 
 function authUpdateProfile(){ 
+    const newFirstName = userFirstNameEl.value 
+    const phoneNumber = userPhoneNumber.value
     updateProfile(auth.currentUser, {
-        displayName: "Jane Q. User", 
-        photoURL: "https://example.com/jane-q-user/profile.jpg"
+        displayName: newFirstName, 
+        // phoneNumber: phoneNumber,
+        // photoURL: "https://example.com/jane-q-user/profile.jpg"
     }).then(() => {
-        // Profile updated!
         console.log("profile updated")
     }).catch((error) => {
         console.log(error)
     });
 }
+
+
 
 //UI Functions
 
@@ -171,8 +179,7 @@ function showView(view){
 function showUserGreeting(element, user) { 
     if (user !== null) {
         if (user.displayName) { 
-            const userFirstName = displayName.split(" ")[0]
-            element.textContent = `Hello, ${userFirstName}`
+            element.textContent = `Hello, ${user.displayName}`
         } else { 
             element.textContent = `Hello, ${user.email}`
         }
