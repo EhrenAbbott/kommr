@@ -36,8 +36,9 @@ const googleBtnEl = document.getElementById("google-btn")
 const facebookBtnEl = document.getElementById("fb-btn")
 const userGreetingEl = document.getElementById("user-greeting")
 const userFirstNameEl = document.getElementById("user-first-name")
-const userPhoneNumber = document.getElementById("user-phone-number")
+const userPhoneNumberEl = document.getElementById("user-phone-number")
 const userInfoSubmitBtnEl = document.getElementById("user-info-submit-btn")
+const userJobSelectionEl = document.getElementById("user-job")
 
 
 //Event Listeners
@@ -133,13 +134,14 @@ function authSignInWithFacebook() {
 
 function authUpdateProfile(){ 
     const newFirstName = userFirstNameEl.value 
-    const phoneNumber = userPhoneNumber.value
+    // const phoneNumber = userPhoneNumberEl.value
+    // const userJob = userJobSelectionEl.value
     updateProfile(auth.currentUser, {
         displayName: newFirstName, 
-        // phoneNumber: phoneNumber,
         // photoURL: "https://example.com/jane-q-user/profile.jpg"
     }).then(() => {
-        console.log("profile updated")
+        console.log("first name updated")
+        clearUserInfoFields()
     }).catch((error) => {
         console.log(error)
     });
@@ -156,6 +158,13 @@ function clearInputField(field){
 function clearAuthFields() {
 	clearInputField(emailInputEl)
 	clearInputField(passwordInputEl)
+}
+
+function clearUserInfoFields() { 
+    clearInputField(userFirstNameEl)
+    clearInputField(userPhoneNumberEl)
+    clearInputField(userJobSelectionEl)
+
 }
 
 function showLoggedInView(){ 
