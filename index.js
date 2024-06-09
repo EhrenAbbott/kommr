@@ -166,7 +166,7 @@ function showUserGreeting(element, user) {
         // this value to authenticate with your backend server, if
         // you have one. Use User.getToken() instead.
         const uid = user.uid;
-        element.innerHTML = `Hello, ${user.email}`
+        element.innerHTML = `Hello, ${email}`
     }
 }
 
